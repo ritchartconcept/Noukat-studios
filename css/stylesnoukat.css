@@ -1,8 +1,8 @@
 /* VARIABLES — à mettre EN PREMIER dans le CSS */
 :root {
-    --bg:         #09090c;
-    --bg2:        #111116;
-    --bg3:        #16161d;
+    --bg:         #1a1a22;
+    --bg2:        #22222b;
+    --bg3:        #262632;
     --accent:     #1b75fb;
     --accent-dim: rgba(127, 119, 221, 0.12);
     --accent-mid: rgba(112, 139, 228, 0.35);
