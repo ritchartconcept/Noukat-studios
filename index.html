@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Fritzner Richard">
+        <title>Noukat studios</title>
+        <link rel="icon" href="assets/icon/favicon_io/favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" href="css/stylesnoukat.css">
+    </head>
+
+    <body>
+
+        <header>
+            <nav class="navbar">
+
+                <!-- The logo LEFT -->
+                 <div class="logo-nav-left">
+                    <a href="index.html"> <img src="assets/icon/Masque visionnaire Noukat studios-02.svg" alt="Logo Noukat studios" width="130" height="130"></a>
+                 </div>
+
+                 <!-- ==================
+                      NAV DESKTOP CENTER
+                      ================== -->
+                <ul class="nav-links">
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+
+                <!-- RIGHT 
+                <div class="nav-right">
+                    <a href="#" class="btn btn-primary">
+                        Start a Project
+                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                            <path d="M2 7h10M8 3l4 4-4 4"
+                              stroke="currentColor" stroke-width="1.3"
+                              stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                </div> -->
+
+                <!-- BURGER ICON -->
+                 <div class="menu-icon" onclick="openMenu()">
+                    ☰
+                 </div>
+
+                 <!-- SIDEBAR MOBILE -->
+                  <ul class="sidebar">
+                    <li class="close-btn" onclick="closeMenu()">✕</li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                  </ul>
+
+                  <div class="nav-bg-image"></div>
+
+            </nav>
+        </header>
+
+        <script>
+            function openMenu() {
+                document.querySelector(".sidebar").style.right = "0";
+            }
+
+            function closeMenu() {
+                document.querySelector(".sidebar").style.right = "-100%";
+            }
+        </script>
+
+        <!-- ==============================
+              HERO SECTION (THE MAIN PAGE
+             ============================== -->
+        <section class="hero" id="hero">
+            <div class="hero-bg-image"></div> <!-- Ajout d'image en background -->
+            <div class="hero-grid-bg"></div>
+            <div class="hero-glow"></div>
+        
+            <div class="container" style="position: relative; z-index: 1; width: 100%;">
+                <div class="hero-grid">
+        
+                    <!-- COLONNE GAUCHE -->
+                    <div class="hero-left">
+        
+                        <div class="badge" style="margin-bottom: 22px;">
+                            <span class="badge-dot"></span>
+                            Haitien Creative studio
+                        </div>
+        
+                        <h1 class="hero-h1">
+                            We turn your ideas into powerful
+                            <span style="color: var(--accent); font-style: italic;">visual worlds.</span>
+                        </h1>
+        
+                        <p class="hero-sub">
+                            Illustration, Webtoon, Animation & Branding —
+                            designed with a level of professional rigor
+                            rarely seen in the Haitian market.
+                        </p>
+        
+                        <div class="hero-btns">
+                            <a href="#" class="btn btn-primary">
+                                Start a Project
+                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                                    <path d="M2 7h10M8 3l4 4-4 4"
+                                      stroke="currentColor" stroke-width="1.3"
+                                      stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </a>
+                            <a href="#" class="btn btn-ghost">See Portfolio</a>
+                        </div>
+        
+                        <div class="hero-stats">
+                            <div class="stat">
+                                <div class="stat-num">10+</div>
+                                <div class="stat-label">Years of experience</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-num">20+</div>
+                                <div class="stat-label">Client Services</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-num">HT &amp; INT</div>
+                                <div class="stat-label">Local · Diaspora · International</div>
+                            </div>
+                        </div>
+        
+                    </div>
+        
+                    <!-- COLONNE DROITE — Artwork -->
+                    <div class="hero-right">
+                        <div class="hero-art-frame">
+
+                            <!-- L'IMAGE PRINCIPALE — remplace le placeholder -->
+                            <img
+                                src="image/illustration/COVER_1_generation-BOHIO-final.webp"
+                                alt="BOHIO Generation — Noukat Studios"
+                                class="hero-artwork"
+                            >
+                        
+                            <!-- Tags flottants — restent par dessus l'image -->
+                            <div class="floating-card top-right">
+                                <div class="fc-title">Bohio Generation</div>
+                                <div class="fc-sub">BD · Webtoon</div>
+                            </div>
+                            <div class="floating-card bottom-left">
+                                <div class="fc-title">Animation 2D</div>
+                                <div class="fc-sub">Identité visuelle</div>
+                            </div>
+                        
+                        </div>
+                    </div>
+        
+                </div>
+            </div>
+        </section>
+
+         <!-- ==================
+                   SERVICES 
+              ================== -->
+          <section class="section services-section" id="services">
+            <div class="section-bg services-bg"></div>
+            <div class="container">
+
+                <div class="section-header">
+                    <p class="section-label">What we do</p>
+                    <h2 class="title-lg">
+                        Three main categories of <br>
+                        <span class="accent-italic">Services</span>
+                    </h2>
+                    <p class="section-desc">
+                        From concept to final delivery — illustration, storytelling, 
+                        and publishing — with clear processes and a level 
+                        of production quality rarely found in the market.
+                    </p>
+                </div>
+
+                <div class="services-grid">
+
+                    <!-- SERVICE 1 -->
+                     <div class="service-card">
+                        <div class="service-icon">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <circle cx="10" cy="10" r="7" stroke="#fbc31b" stroke-width="1.2"/>
+                                <path d="M7 10l2 2 4-4" stroke="#fbc31b" stroke-width="1.2"
+                                  stroke-linecap="round" stroke-linejoin="round"/>
+                              </svg>
+                        </div>
+                        <p class="service-number">01 — Visual Design</p>
+                        <h3 class="service-title">Illustration &amp; Visual Identity</h3>
+                        <p class="service-desc">
+                            Illustrations, 2D animation, visual identity design, 
+                            and editorial layout. For brands and creators who want 
+                            a professional and impactful image.
+                        </p>
+                        <div class="service-tag">
+                            <span class="service-tag">Illustration</span>
+
+                            <span class="service-tag">Branding</span>
+
+                            <span class="service-tag">2D animation</span>
+
+                            <span class="service-tag">Layout</span>
+                        </div>
+                     </div>
+
+                     <!-- SERVICE 2 -->
+<div class="service-card">
+    <div class="service-icon">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <rect x="3" y="3" width="14" height="10" rx="2"
+              stroke="#fbc31b" stroke-width="1.2"/>
+            <path d="M6 17h8M10 13v4" stroke="#fbc31b" stroke-width="1.2"
+              stroke-linecap="round"/>
+        </svg>
+    </div>
+
+    <p class="service-number">02 — Visual storytelling</p>
+    <h3 class="service-title">BD, Webtoon & Manga</h3>
+
+    <p class="service-desc">
+        Comprehensive design services for comic books, manga, webtoons, and children’s books.
+        From concept to final product—we work closely with each creator
+        to bring their vision to life.
+    </p>
+
+    <div class="service-tags">
+        <span class="service-tag">Comics</span>
+        <span class="service-tag">Manga</span>
+        <span class="service-tag">Webtoon</span>
+        <span class="service-tag">Children's books</span>
+        <span class="service-tag">Character design</span>
+    </div>
+</div>
+
+            <!-- SERVICE 3 -->
+            <div class="service-card">
+                <div class="service-icon">
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <path d="M4 4h12v12H4z" stroke="#fbc31b" stroke-width="1.2" rx="2"/>
+                    <path d="M8 9h4M8 12h4" stroke="#fbc31b" stroke-width="1.2"
+                      stroke-linecap="round"/>
+                  </svg>
+                </div>
+                <p class="service-number">03 — Publication &amp; Web</p>
+                <h3 class="service-title">Publication &amp; Showcase websites</h3>
+                <p class="service-desc">
+                    Publishing on Amazon KDP (e-books &amp; paperbacks) and designing
+                    author websites. We help authors distribute their work
+                    globally and build their online presence.
+                </p>
+                <div class="service-tags">
+                  <span class="service-tag">Amazon KDP</span>
+                  <span class="service-tag">Ebook</span>
+                  <span class="service-tag">Showcase websites</span>
+                  <span class="service-tag">Distribution</span>
+                </div>
+              </div>
+       
+            </div>
+          </div>
+        </section>
+
+
+        <hr class="divider">
+
+
+        <!-- ===================
+                    ABOUT
+             =================== -->
+             <section class="section about about-section" id="about">
+                <div class="section-bg about-bg"></div>
+                <div class="container">
+ 
+                    <div class="about-grid">
+               
+                      <!-- COLONNE GAUCHE — Texte -->
+                      <div class="about-left">
+                        <p class="section-label">The studio</p>
+                        <h2 class="title-lg">
+                          A <span class="accent italic">creative</span>studio,
+                          not just a graphic design studio.
+                        </h2>
+               
+                        <p class="about-text">
+                            Based in Haiti, Noukat Studios positions itself as the country’s most comprehensive
+                            creative narrative studio. It specializes in comics, webtoons,
+                            professional illustration, and 2D animation.
+                        </p>
+                        <p class="about-text">
+                            In a market dominated by traditional graphic design, Noukat offers
+                            a premium, well-structured service focused on modern visual storytelling
+                            — bridging the gap between Haitian creativity and international
+                            standards.
+                        </p>
+               
+                        <!-- Citation UVP -->
+                        <div class="about-uvp">
+                          <p class="uvp-text">
+                            "Noukat Studios: professional visual designs
+                            that convey identity, story, and impact."
+                          </p>
+                        </div>
+                      </div>
+               
+                      <!-- COLONNE DROITE — Valeurs -->
+                      <div class="about-values">
+               
+                        <div class="value-item">
+                          <div class="value-num">01</div>
+                          <div class="value-content">
+                            <div class="value-title">Imagine</div>
+                            <div class="value-desc">
+                                Create original and meaningful worlds that leave a lasting impression.
+                            </div>
+                          </div>
+                        </div>
+               
+                        <div class="value-item">
+                          <div class="value-num">02</div>
+                          <div class="value-content">
+                            <div class="value-title">Inward</div>
+                            <div class="value-desc">
+                                Creative methods that blend traditional art with digital tools.
+                            </div>
+                          </div>
+                        </div>
+               
+                        <div class="value-item">
+                          <div class="value-num">03</div>
+                          <div class="value-content">
+                            <div class="value-title">Breathe in</div>
+                            <div class="value-desc">
+                                To produce works that generate artistic and commercial value.
+                            </div>
+                          </div>
+                        </div>
+               
+                        <div class="value-item">
+                          <div class="value-num">04</div>
+                          <div class="value-content">
+                            <div class="value-title">Make impact</div>
+                            <div class="value-desc">
+                                To establish Haitian creativity as a benchmark in the international arena.
+                            </div>
+                          </div>
+                        </div>
+               
+                      </div>
+               
+                    </div>
+                  </div>
+             </section>
+
+
+             <!-- ══════════════════════════════════════
+                     5. CLIENTS CIBLES (PERSONAS)
+                  ══════════════════════════════════════ -->
+             <section class="section" id="clients">
+                 <div class="container">
+ 
+                 <div class="section-header">
+                    <p class="section-label">For whom</p>
+                    <h2 class="title-lg">
+                        We work with
+                    <span class="accent italic">visionaries</span>
+                       </h2>
+                       <p class="section-desc">
+                        Entrepreneurs, authors, institutions—every project deserves a
+                        tailored approach.
+                      </p>
+                </div>
+ 
+      <div class="personas-grid">
+ 
+        <!-- PERSONA 1 -->
+        <div class="persona-card">
+          <div class="persona-avatar">E</div>
+          <p class="persona-type">Entrepreneur · Start-up</p>
+          <h3 class="persona-title">The Visual Entrepreneur</h3>
+          <p class="persona-desc">
+            Ages 20–40. Wants to be seen as modern and international.
+            Seeks a strong, responsive, and professional creative direction.
+          </p>
+          <div class="persona-needs">
+            <div class="need-item">
+              <span class="need-dot"></span>
+              Logo &amp; consistent visual identity
+            </div>
+            <div class="need-item">
+              <span class="need-dot"></span>
+              Premium and memorable branding
+            </div>
+            <div class="need-item">
+              <span class="need-dot"></span>
+              Speed &amp; professionalism
+            </div>
+          </div>
+        </div>
+ 
+        <!-- PERSONA 2 -->
+        <div class="persona-card">
+          <div class="persona-avatar">I</div>
+          <p class="persona-type">ONG · Institution · Cultur</p>
+          <h3 class="persona-title">The cultural institution</h3>
+          <p class="persona-desc">
+            Communications manager or project manager. Need compelling content
+            for social projects. Requires professionalism, contracts, and deadlines.
+          </p>
+          <div class="persona-needs">
+            <div class="need-item">
+              <span class="need-dot"></span>
+              Animation &amp; educational illustration
+            </div>
+            <div class="need-item">
+              <span class="need-dot"></span>
+              Storytelling visuals for social projects
+            </div>
+            <div class="need-item">
+              <span class="need-dot"></span>
+              A reliable studio with clear copyright terms
+            </div>
+          </div>
+        </div>
+ 
+        <!-- PERSONA 3 -->
+        <div class="persona-card">
+          <div class="persona-avatar">C</div>
+          <p class="persona-type">Author · Creator · Influencer</p>
+          <h3 class="persona-title">The Universe Creator</h3>
+          <p class="persona-desc">
+            Authors, YouTubers, Instagrammers. No drawing skills,
+            but a story to tell. Looking for a flexible and talented
+            artistic partner.
+          </p>
+          <div class="persona-needs">
+            <div class="need-item">
+              <span class="need-dot"></span>
+              Comics, webtoon &amp; character design
+            </div>
+            <div class="need-item">
+              <span class="need-dot"></span>
+              Strong style &amp; relation collaborative
+            </div>
+            <div class="need-item">
+              <span class="need-dot"></span>
+              A cohesive and &amp; original visual style
+            </div>
+          </div>
+        </div>
+ 
+      </div>
+    </div>
+  </section>
+ 
+     <hr class="divider">
+
+     <!-- ===========
+              CTA
+          =========== -->
+          <section class="section cta-section" id="contact">
+            <div class="cta-glow"></div>
+            <div class="container">
+              <div class="cta-inner">
+                <div class="badge" style="margin: 0 auto 24px; display: flex; width: fit-content;">
+                  <span class="badge-dot"></span>
+                  We are available for new projects
+                </div>
+                <h2 class="title-lg">
+                    Ready to bring your
+                  <span class="accent italic">Universe</span> ?
+                </h2>
+                <p class="cta-sub">
+                    Tell us about your project. We’ll guide you every step of the way—
+                    from concept to final delivery—with dedication and passion.
+                </p>
+                <div class="cta-btns">
+                  <a href="mailto:contact@noukatstudios.com" class="btn btn-primary">
+                    Send a message
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                      <path d="M2 7h10M8 3l4 4-4 4"
+                        stroke="currentColor" stroke-width="1.3"
+                        stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </a>
+                  <a href="https://www.instagram.com/noukat_studios/"
+                     target="_blank"
+                     class="btn btn-ghost">
+                    <!--
+                      target="_blank" → ouvre le lien dans un
+                      NOUVEL onglet du navigateur.
+                    -->
+                    See on Instagram
+                  </a>
+                </div>
+         
+                <!-- Zone géographique -->
+                <div class="geo-strip">
+                  <strong>Haïti</strong> · Diaspora haitien ·
+                  <strong>International</strong> &nbsp;—&nbsp;
+                  Services available remotely worldwide
+                </div>
+         
+              </div>
+            </div>
+          </section>
+
+
+<!-- ══════════════════════════════════════
+       7. FOOTER
+       <footer> = pied de page.
+       Balise sémantique reconnue par les
+       navigateurs et Google.
+  ══════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+ 
+        <div class="footer-logo">
+          <img src="assets/icon/new logo Noukat studio-01.png" alt="logo noukat studios" width="170">
+        </div>
+ 
+        <nav class="footer-links">
+          <a href="https://www.instagram.com/noukat_studios/" class="social-link"><img src="assets/icon/Icon_social_media-ig.svg" alt="logo IG" width="40"></a>
+          <a href="https://www.facebook.com/noukatstudios/" class="social-link"><img src="assets/icon/facebook-app-round-icon-01.svg" alt="logo FB" width="34"></a>
+          <a href="https://www.linkedin.com/company/noukat-studios/?viewAsMember=true" class="social-link"><img src="assets/icon/Icon_social_media-linkedin.svg" alt="logo linkedin" width="40"></a>
+          <a href="https://wa.me/c/50938604335" class="social-link"><img src="assets/icon/Icon_social_media-whatsapp.svg" alt="logo whatsapp" width="40"></a>
+        </nav>
+ 
+        <p class="footer-copy">
+          &copy; 2026 Noukat Studios · Haïti
+          <!--
+            &copy; = le symbole copyright ©
+            C'est une entité HTML spéciale.
+          -->
+        </p>
+ 
+      </div>
+    </div>
+   </footer>
+        
+  </body>
+
+</html>
