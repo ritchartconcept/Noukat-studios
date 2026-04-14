@@ -211,7 +211,7 @@ body {
     background: var(--bg);     /* ← fond sombre indispensable */
 }
 
-.hero-bg-image {
+.section-bg-image {
     position: absolute;
     inset: 0; /* top:0 right:0 bottom:0 left:0 */
     background-image: url(../image/illustration/cover_illustration_copy.webp);
