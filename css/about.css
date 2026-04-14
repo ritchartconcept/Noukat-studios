@@ -214,7 +214,7 @@ body {
 .hero-bg-image {
     position: absolute;
     inset: 0; /* top:0 right:0 bottom:0 left:0 */
-    background-image: url(/image/illustration/cover_illustration_copy.webp);
+    background-image: url(../image/illustration/cover_illustration_copy.webp);
     background-size: cover;
     background-position: right;
     background-repeat: no-repeat;
@@ -523,7 +523,7 @@ body {
    .services-bg {
     position: absolute;
     inset: 0;
-    background-image: url(/image/illustration/Design-Cover-3.webp);
+    background-image: url(../image/illustration/Design-Cover-3.webp);
     opacity: 0.19; /* Controle la visibiliter */
     background-size: cover;
     background-position: center;
@@ -627,7 +627,7 @@ body {
         inset: 0;
         background-image: 
             linear-gradient(rgba(17,17,22,0.9), rgba(17,17,22,0.95)),
-            url("/image/background/about-bg.webp");
+            url("../image/background/about-bg.webp");
         background-size: cover;
         background-position: center;
         z-index: 0;
