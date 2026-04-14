@@ -31,94 +31,79 @@
     z-index: 1;
 }
 
+/* NAVBAR */
 .navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100px;              /* ← 130px pour contenir le logo de 120px */
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #e4e6e8;
-
-    padding: 5px 2.5rem;        /* ← 5px en haut/bas pour centrer le logo */
-    z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: space-between;  /* logo | centre | bouton */
+  align-items: center;
+  background-color: #e4e6e8;
+  padding: 0 2.5rem;
+  z-index: 1000;
 }
 
-
-/* LOGO — contrôle exact de la hauteur */
+/* LOGO GAUCHE */
 .logo-nav-left img {
-    height: 120px;              /* ← ta hauteur souhaitée */
-    width: auto;                /* ← garde les proportions, pas de déformation */
-    display: block;
-    transition: 0.3s ease;
+  height: 120px;
+  width: auto;
+  display: block;
+  transition: transform 0.3s ease;
 }
 
 .logo-nav-left img:hover {
-    transform: rotate(-5deg);
+  transform: rotate(-5deg);
 }
 
-/* NAV LINKS DESKTOP */
+/* LIENS CENTRE — position absolute pour centrage parfait */
 .nav-links {
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%);
-    display: flex;
-    gap: 40px;
-    list-style: none;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 36px;
+  list-style: none;
 }
 
 .nav-links a {
-    text-decoration: none;
-    color: #0d4dae;
-    font-size: 1.2rem;
-    transition: 0.3s ease;
-    position: relative;
+  text-decoration: none;
+  color: #0d4dae;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  position: relative;
+  padding-bottom: 4px;
 }
 
-/* Effet underline anime */
+/* Underline animé — CORRECTION du bug 6 */
 .nav-links a::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -5px;
-    width: 0%;
-    height: 2px;
-    transition: 0.3s;
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0%;
+  height: 2px;
+  background: #1b75fb;
+  transition: width 0.3s ease;   /* ← width sur ::after, pas sur a */
 }
 
-.nav-links a::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -5px;
-    width: 0%;
-    height: 2px;
-    background: #2696ff;
-    transition: 0.3s;
+.nav-links a:hover {
+  color: #1b75fb;
 }
 
 .nav-links a:hover::after {
-    width: 100%;
+  width: 100%;                    /* ← s'anime sur ::after */
 }
 
-.btn-primary {
-    background: #1b75fb;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 6px;
-    text-decoration: none;
-    font-size: 14px;
-
-    transition: 0.3s;
+/* BOUTON DROITE */
+.nav-right {
+  display: flex;
+  align-items: center;
 }
 
-.btn-primary:hover {
-    background: #2696ff;
-    transform: translateY(-2px);
-}
 
 
 /* MENU ICON (burger) */
@@ -194,9 +179,14 @@ body {
         display: block; /* affiche burger */
     }
 
-    .logo img {
-        width: 100px;
+    .logo-nav-left img {
+        height: 70px;  /* <- Le logo reduit sur mobile */
+        width: auto;
         transform: rotate(-5deg);
+    }
+
+    .nav-right {
+      display: none;  /* <- cache le bouton CTA sur mobile */
     }
 
 }
@@ -224,7 +214,7 @@ body {
 .hero-bg-image {
     position: absolute;
     inset: 0; /* top:0 right:0 bottom:0 left:0 */
-    background-image: url(../image/illustration/cover_illustration_copy.webp);
+    background-image: url(/image/illustration/cover_illustration_copy.webp);
     background-size: cover;
     background-position: right;
     background-repeat: no-repeat;
@@ -343,7 +333,7 @@ body {
 }
 
 .btn-primary:hover {
-    background: #3344ff;
+    background: #f89810;
     transform: translateY(-2px);
 }
 
@@ -529,6 +519,26 @@ body {
     line-height: 1.75;
    }
 
+
+   /* TITRES DE SECTION */
+.title-lg {
+  font-family: var(--font-title);
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 600;
+  line-height: 1.15;
+  color: var(--white);
+  margin-bottom: 16px;
+}
+
+.accent {
+  color: var(--accent);
+}
+
+.italic {
+  font-style: italic;
+}
+
+
    .services-section {
     position: relative;
     overflow: hidden;
@@ -542,7 +552,7 @@ body {
    .services-bg {
     position: absolute;
     inset: 0;
-    background-image: url(../image/illustration/Design-Cover-3.webp);
+    background-image: url(/image/illustration/Design-Cover-3.webp);
     opacity: 0.19; /* Controle la visibiliter */
     background-size: cover;
     background-position: center;
@@ -644,8 +654,9 @@ body {
     .about-bg {
         position: absolute;
         inset: 0;
-        background-image: url("../image/background/about-bg.webp");
-        opacity: 0.19; /* Controle la visibiliter */
+        background-image: 
+            linear-gradient(rgba(17,17,22,0.9), rgba(17,17,22,0.95)),
+            url("/image/background/about-bg.webp");
         background-size: cover;
         background-position: center;
         z-index: 0;
@@ -914,6 +925,12 @@ body {
         color: var(--white);
         letter-spacing: 0.05em;
       }
+
+      .footer-logo-img {
+        width: 170px;
+        height: auto;
+        display: block;
+    }
    
       .footer-links {
         display: flex;
@@ -991,6 +1008,10 @@ body {
          @media (max-width: 768px) → s'applique uniquement
          si la largeur de l'écran est ≤ 768px (tablettes/mobile)
       ══════════════════════════════════════════════════ */
+
+
+
+
       @media (max-width: 900px) {
         .services-grid,
         .personas-grid {
@@ -1006,6 +1027,10 @@ body {
           /* une seule colonne sur mobile */
           gap: 40px;
         }
+
+        .footer-logo-img {
+          width: 120px;
+      }
    
         .hero-right {
           display: none;
@@ -1033,6 +1058,13 @@ body {
         .footer-links:hover {
             color: #e4e6e8;
         }
+
+        .footer-copy {
+          font-size: 12px;
+          color: rgba(255, 255, 255, 0.35);
+          letter-spacing: 0.03em;
+      }
+
       }
 
 
