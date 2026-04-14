@@ -1,0 +1,472 @@
+/* VARIABLES — à mettre EN PREMIER dans le CSS */
+:root {
+    --bg:         #1a1a22;
+    --bg2:        #22222b;
+    --bg3:        #262632;
+    --accent:     #1b75fb;
+    --accent-dim: rgba(127, 119, 221, 0.12);
+    --accent-mid: rgba(112, 139, 228, 0.35);
+    --white:      #ffffff;
+    --text:       rgba(255, 255, 255, 0.956);
+    --muted:      rgba(255, 255, 255, 0.912);
+    --faint:      rgba(255, 255, 255, 0.08);
+    --font-title: 'Georgia', serif;
+    --font-body:  Arial, sans-serif;
+    --radius:     12px;
+    --radius-sm:  7px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+
+/* NAVBAR FIX */
+
+.navbar .container {
+    position: relative;
+    z-index: 1;
+}
+
+/* NAVBAR */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: space-between;  /* logo | centre | bouton */
+  align-items: center;
+  background-color: #e4e6e8;
+  padding: 0 2.5rem;
+  z-index: 1000;
+}
+
+/* LOGO GAUCHE */
+.logo-nav-left img {
+  height: 120px;
+  width: auto;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.logo-nav-left img:hover {
+  transform: rotate(-5deg);
+}
+
+/* LIENS CENTRE — position absolute pour centrage parfait */
+.nav-links {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 36px;
+  list-style: none;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #0d4dae;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  position: relative;
+  padding-bottom: 4px;
+}
+
+/* Underline animé — CORRECTION du bug 6 */
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0%;
+  height: 2px;
+  background: #1b75fb;
+  transition: width 0.3s ease;   /* ← width sur ::after, pas sur a */
+}
+
+.nav-links a:hover {
+  color: #1b75fb;
+}
+
+.nav-links a:hover::after {
+  width: 100%;                    /* ← s'anime sur ::after */
+}
+
+/* BOUTON DROITE */
+.nav-right {
+    display: flex;
+    align-items: center;
+  }
+
+
+
+/* MENU ICON (burger) */
+.menu-icon {
+    font-size: 2.5rem;
+    cursor: pointer;
+    display: none; /*  cache sur desktop */
+    color: #0d4dae;
+}
+
+/* SIDEBAR MOBILE */
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -100%; /* chache par defaut */
+    height: 100vh;
+    width: 250px;
+
+    background-color: #2696ff;
+    backdrop-filter: blur(10px);
+
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    gap: 2rem;
+
+    transition: 0.3s;
+    z-index: 999;
+}
+
+.sidebar li {
+    text-decoration: none;
+    list-style: none;
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: #b3e4ff;
+    font-size: 1.8rem;
+}
+
+/* BOUTON CLOSE */
+.close-btn {
+    font-size: 2rem;
+    cursor: pointer;
+    align-self: flex-end;
+    color: #b3e4ff;
+}
+
+.sidebar li a:hover {
+    color: #0d4dae;
+}
+
+
+/* espace pour eviter que le contenu soit cache sous navbar */
+body {
+    padding-top: 100px;         /* ← même valeur que height de la navbar */
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+}
+
+/* ===================
+      MOBILE VERSION 
+   =================== */
+@media (max-width: 768px) {
+
+    .nav-links {
+        display: none; /* cache menu desktop */
+    }
+
+    .menu-icon {
+        display: block; /* affiche burger */
+    }
+
+    .logo-nav-left img {
+        height: 70px;  /* <- Le logo reduit sur mobile */
+        width: auto;
+        transform: rotate(-5deg);
+    }
+
+    .nav-right {
+      display: none;  /* <- cache le bouton CTA sur mobile */
+    }
+
+}
+
+
+/* SECTION CONTACT — layout principal */
+.contact-section {
+    padding: 60px 28px 100px;   /* ← padding-top réduit, body gère déjà 100px */
+    max-width: 1160px;
+    margin: 0 auto;             /* ← centrage horizontal */
+}
+
+/* GRID DEUX COLONNES — Bug 5 corrigé : display:grid ajouté */
+.contact-grid {
+    display: grid;                          /* ← manquait ! */
+    grid-template-columns: 1.6fr 1fr;       /* formulaire large | aside étroit */
+    gap: 40px;
+    align-items: start;                     /* aligne en haut, pas en centre */
+}
+
+/* COLONNE GAUCHE — formulaire */
+.contact-left {
+    background: var(--bg3);
+    border-radius: var(--radius);
+    padding: 3rem;
+    border: 0.5px solid var(--faint);
+}
+
+/* COLONNE DROITE — info + map */
+.contact-right {
+    background: var(--bg3);
+    border-radius: var(--radius);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    border: 0.5px solid var(--faint);
+    position: sticky;           /* ← reste visible quand on scroll le formulaire */
+    top: 120px;
+}
+
+/* FORMULAIRE */
+.contact-form h2 {
+    font-family: var(--font-title);
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 28px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-weight: 500;
+    font-size: 13px;
+    margin-bottom: 6px;
+    color: var(--white);
+}
+
+input,
+textarea,
+select {
+    width: 100%;
+    padding: 13px 14px;
+    border-radius: var(--radius-sm);
+    border: 0.5px solid var(--faint);
+    background: var(--bg2);
+    color: var(--text);
+    font-size: 14px;
+    outline: none;
+    transition: border 0.25s, box-shadow 0.25s;
+    font-family: var(--font-body);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 2px var(--accent-dim);
+}
+
+textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+small {
+    display: block;
+    margin-top: 5px;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.35);
+}
+
+/* TÉLÉPHONE — select + input côte à côte */
+.phone-wrapper {
+    display: flex;
+    gap: 12px;
+}
+
+.phone-wrapper select {
+    width: 42%;
+    flex-shrink: 0;
+}
+
+.phone-wrapper input {
+    width: 58%;
+}
+
+/* CHECKBOXES */
+.checkbox-inline-group {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 8px;
+    flex-wrap: wrap;
+}
+
+.checkbox-inline-group label {
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    color: var(--muted);
+}
+
+.inline {
+    width: auto;                /* ← les checkboxes ne prennent pas 100% */
+}
+
+/* LIEN POLITIQUE */
+.privacy-policy {
+    color: #a404cc;
+    text-decoration: underline;
+}
+
+.privacy-policy:hover {
+    color: #ff5cfa;
+}
+
+/* BOUTON SUBMIT */
+.submit-btn {
+    padding: 13px 32px;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: var(--font-body);
+    font-weight: 500;
+    transition: background 0.25s, transform 0.25s;
+    margin-top: 8px;
+}
+
+.submit-btn:hover {
+    background: #2696ff;
+    transform: translateY(-2px);
+}
+
+/* ASIDE DROITE */
+.contact-logo {
+    width: 100%;
+    border-radius: var(--radius);
+    object-fit: cover;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.contact-info p {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.6;
+}
+
+.contact-info a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+}
+
+.contact-map iframe {
+    width: 100%;
+    height: 220px;
+    border: 0;
+    border-radius: var(--radius-sm);
+}
+
+ /* ══════════════════════════════════════════════════
+         7. FOOTER
+      ══════════════════════════════════════════════════ */
+      .footer {
+        width: 100%;
+        border-top: 0.5px solid var(--faint);
+        padding: 40px 0 32px;
+      }
+   
+      .footer-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+   
+      .footer-logo {
+        font-family: var(--font-title);
+        font-size: 16px;
+        color: var(--white);
+        letter-spacing: 0.05em;
+      }
+
+      .footer-logo-img {
+        width: 170px;
+        height: auto;
+        display: block;
+    }
+   
+      .footer-links {
+        display: flex;
+        gap: 24px;
+      }
+   
+      .social-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+   
+    .social-link:hover {
+        transform: translateY(-5px); /* monte légèrement */
+    }
+   
+    .social-link img {
+        width: 32px;
+        height: 32px;
+        transition: transform 0.3s ease, filter 0.3s ease;
+    }
+
+    .social-link:hover img {
+        transform: scale(1.1);
+        filter: brightness(0) invert(1);
+        box-shadow: 0 0 10px rgba(38, 150, 255, 0.6);
+    }
+
+/* =======================
+     RESPONSIVE CONTACT
+   ======================= */
+   @media (max-width: 768px) {
+
+    .footer-inner {
+        flex-direction: column;   /* empile verticalement */
+        align-items: center;      /* centre horizontal */
+        text-align: center;
+        gap: 24px;
+    }
+
+    .footer-logo-img {
+        width: 120px;
+    }
+
+    .footer-links {
+        justify-content: center;
+        flex-wrap: wrap;          /* évite débordement */
+        gap: 16px;
+    }
+
+    .footer-copy {
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.4);
+    }
+}
+
