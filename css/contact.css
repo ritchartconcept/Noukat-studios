@@ -10,7 +10,7 @@
     --text:       rgba(255, 255, 255, 0.956);
     --muted:      rgba(255, 255, 255, 0.912);
     --faint:      rgba(255, 255, 255, 0.08);
-    --font-title: 'Georgia', serif;
+    --font-title: 'Open sans', serif;
     --font-body:  Arial, sans-serif;
     --radius:     12px;
     --radius-sm:  7px;
@@ -20,7 +20,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
 }
 
 
@@ -73,6 +72,7 @@
   color: #0d4dae;
   font-size: 1rem;
   font-weight: 500;
+  text-transform: uppercase;
   transition: color 0.3s ease;
   position: relative;
   padding-bottom: 4px;
@@ -141,6 +141,7 @@
 
 .sidebar a {
     text-decoration: none;
+    text-transform: uppercase;
     color: #b3e4ff;
     font-size: 1.8rem;
 }
