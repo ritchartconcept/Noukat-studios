@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Fritzner Richard">
+        <title>Noukat studios</title>
+        <link rel="icon" href="assets/icon/favicon_io/android-chrome-512x512.png" type="image/x-icon">
+        <link rel="stylesheet" href="css//portfolio.css">
+    </head>
+
+    <body>
+
+        <header>
+          <nav class="navbar">
+
+            <!-- ===================
+                    GAUCHE — Logo 
+                 =================== -->
+            <div class="logo-nav-left">
+                <a href="index.html">
+                    <img src="assets/icon/Masque visionnaire Noukat studios-02.svg"
+                         alt="Logo Noukat studios">
+                </a>
+            </div>
+        
+            <!-- ==========================
+                   CENTRE — Liens desktop 
+                 ========================== -->
+            <ul class="nav-links">
+                <li><a href="#services">Services</a></li>
+                <li><a href="portfolio.html">Work</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        
+            <!-- =======================
+                   DROITE — Bouton CTA 
+                 ======================= -->
+            <div class="nav-right">
+                <a href="contact.html" class="btn btn-primary nav-btn">
+                    Start a Project
+                    <svg width="13" height="13" viewBox="0 0 14 14" fill="none">
+                        <path d="M2 7h10M8 3l4 4-4 4"
+                          stroke="currentColor" stroke-width="1.3"
+                          stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+            </div>
+        
+            <!-- BURGER ICON — mobile seulement -->
+            <div class="menu-icon" onclick="openMenu()">☰</div>
+        
+            <!-- SIDEBAR MOBILE -->
+            <ul class="sidebar">
+                <li class="close-btn" onclick="closeMenu()">✕</li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="portfolio.html">Work</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        
+        </nav>
+        </header>
+
+        <script>
+            function openMenu() {
+                document.querySelector(".sidebar").style.right = "0";
+            }
+
+            function closeMenu() {
+                document.querySelector(".sidebar").style.right = "-100%";
+            }
+        </script>
+
+        <!-- ═══════════════════════
+           HERO TITRE
+         ═══════════════════════ -->
+    <section class="portfolio-hero">
+        <div class="portfolio-container">
+            <p class="portfolio-label">Our work</p>
+            <h1 class="portfolio-h1">Selected<br><span class="accent">Work</span></h1>
+            <p class="portfolio-sub">
+                A selection of projects across branding, illustration and editorial design.
+            </p>
+        </div>
+    </section>
+ 
+ 
+    <!-- ═══════════════════════════════════════════
+           ACCORDEONS — 3 sections cliquables
+ 
+           COMMENT ÇA MARCHE :
+           Chaque .accordion-item contient :
+           - Un .accordion-header (la barre cliquable)
+           - Un .accordion-body (le contenu caché/visible)
+ 
+           Quand on clique sur le header, JavaScript
+           ajoute la classe "open" sur l'item parent.
+           Le CSS anime .accordion-body à hauteur auto
+           via max-height.
+         ═══════════════════════════════════════════ -->
+    <main class="portfolio-container">
+ 
+ 
+        <!-- ── SECTION 1 : DESIGN & BRANDING ── -->
+        <div class="accordion-item open" id="acc-design">
+            <!--
+                class="open" → cette section est ouverte par défaut.
+                Les deux autres commencent fermées.
+            -->
+ 
+            <button class="accordion-header" onclick="toggleAccordion('acc-design')">
+                <div class="acc-left">
+                    <span class="acc-number">01</span>
+                    <div>
+                        <h2 class="acc-title">Design & Branding</h2>
+                        <p class="acc-count">24 projects</p>
+                    </div>
+                </div>
+                <div class="acc-arrow">
+                    <!--
+                        La flèche tourne de 0° à 180° via CSS
+                        quand la classe "open" est présente.
+                        C'est une rotation CSS pure, pas une image.
+                    -->
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M5 8l5 5 5-5"
+                          stroke="currentColor" stroke-width="1.5"
+                          stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+            </button>
+ 
+            <div class="accordion-body">
+                <div class="portfolio-grid">
+ 
+                    <article class="card">
+                        <a href="image/design/Flyer-promo-illustration.webp" class="card-link" target="_blank">
+                            <img src="image/design/Flyer-promo-illustration.webp" alt="Flyer promo illustration" loading="lazy">
+                            <div class="card-overlay"><span>View</span></div>
+                        </a>
+                    </article>
+ 
+                    <article class="card">
+                        <a href="image/design/Flyer-promo-EPUB.webp" class="card-link" target="_blank">
+                            <img src="image/design/Flyer-promo-EPUB.webp" alt="Flyer promo EPUB" loading="lazy">
+                            <div class="card-overlay"><span>View</span></div>
+                        </a>
+                    </article>
+ 
+                    <article class="card">
+                        <a href="image/design/Flyer-promo.webp" class="card-link" target="_blank">
+                            <img src="image/design/Flyer-promo.webp" alt="Flyer promo" loading="lazy">
+                            <div class="card-overlay"><span>View</span></div>
+                        </a>
+                    </article>
+ 
+                    <article class="card">
+                        <a href="image/design/Branding-logo-Jonas-neg-saxla-01.webp" class="card-link" target="_blank">
+                            <img src="image/design/Branding-logo-Jonas-neg-saxla-01.webp" alt="Branding Jonas" loading="lazy">
+                            <div class="card-overlay"><span>View</span></div>
+                        </a>
+                    </article>
+ 
+                    <article class="card">
+                        <a href="image/design/Logo_brand_Orizen-05.webp" class="card-link" target="_blank">
+                            <img src="image/design/Logo_brand_Orizen-05.webp" alt="Logo Orizen" loading="lazy">
+                            <div class="card-overlay"><span>View</span></div>
+                        </a>
+                    </article>
+ 
+                    <article class="card">
+                        <a href="image/design/Logo_EasyClean&Shine-05.webp" class="card-link" target="_blank">
+                            <img src="image/design/Logo_EasyClean&Shine-05.webp" alt="Logo EasyClean" loading="lazy">
+                            <div class="card-overlay"><span>View</span></div>
+                        </a>
+                    </article>
+ 
+                    <article class="card">
+                        <a href="image/design/Flyer-salon-du-livre-du-trou-du-nord.webp" class="card-link" target="_blank">
+                            <img src="image/design/Flyer-salon-du-livre-du-trou-du-nord.webp" alt="Salon du livre" loading="lazy">
+                            <div class="card-overlay"><span>View</span></div>
+                        </a>
+                    </article>
+ 
+                    <article class="card">
+                        <a href="image/design/Flyer_annonce_2.webp" class="card-link" target="_blank">
+                            <img src="image/design/Flyer_annonce_2.webp" alt="Flyer annonce" loading="lazy">
+                            <div class="card-overlay"><span>View</span></div>
+                        </a>
+                    </article>
+ 
+                    <article class="card">
+                        <a href="image/design/Flyer-juce-sugarcane-copy.webp" class="card-link" target="_blank">
+                            <img src="image/design/Flyer-juce-sugarcane-copy.webp" alt="Flyer Sugarcane" loading="lazy">
+                            <div class="card-overlay"><span>View</span></div>
+                        </a>
+                    </article>
+ 
+                    <article class="card">
+                        <a href="image/design/Logo_pediatrix_clinics_Artboard 5.webp" class="card-link" target="_blank">
+                            <img src="image/design/Logo_pediatrix_clinics_Artboard 5.webp" alt="Logo Pediatrix" loading="lazy">
+                            <div class="card-overlay"><span>View</span></div>
+                        </a>
+                    </article>
+ 
+                    <article class="card">
+                        <a href="image/design/Logo_pediatrix_clinics-02.webp" class="card-link" target="_blank">
+                            <img src="image/design/Logo_pediatrix_clinics-02.webp" alt="Logo Pediatrix 2" loading="lazy">
+                            <div class="card-overlay"><span>View</span></div>
+                        </a>
+                    </article>
+ 
+                    <article class="card">
+                        <a href="image/design/Logotype_Unlimited_Chamber-01.webp" class="card-link" target="_blank">
+                            <img src="image/design/Logotype_Unlimited_Chamber-01.webp" alt="Unlimited Chamber" loading="lazy">
+                            <div class="card-overlay"><span>View</span></div>
+                        </a>
+                    </article>
+ 
+                    <article class="card">
+                        <a href="image/design/Banner_Watsapp_business_Unlimited_chamber.webp" class="card-link" target="_blank">
+                            <img src="image/design/Banner_Watsapp_business_Unlimited_chamber.webp" alt="Banner Unlimited" loading="lazy">
+                            <div class="card-overlay"><span>View</span></div>
+                        </a>
+                    </article>
+ 
+                    <article class="card">
+                        <a href="image/design/Flyer-we-are-hearing-01.webp" class="card-link" target="_blank">
+                            <img src="image/design/Flyer-we-are-hearing-01.webp" alt="We are hearing" loading="lazy">
+                            <div class="card-overlay"><span>View</span></div>
+                        </a>
+                    </article>
+ 
+                    <article class="card">
+                        <a href="image/design/main logo-01.jpg" class="card-link" target="_blank">
+                            <img src="image/design/main logo-01.jpg" alt="Main logo" loading="lazy">
+                            <div class="card-overlay"><span>View</span></div>
+                        </a>
+                    </article>
+ 
+                    <article class="card">
+                        <a href="image/design/Flyer-fest-c-copy2.webp" class="card-link" target="_blank">
+                            <img src="image/design/Flyer-fest-c-copy2.webp" alt="Flyer Fest" loading="lazy">
+                            <div class="card-overlay"><span>View</span></div>
+                        </a>
+                    </article>
+ 
+                    <article class="card">
+                        <a href="image/design/NEY-LUX.webp" class="card-link" target="_blank">
+                            <img src="image/design/NEY-LUX.webp" alt="NEY LUX" loading="lazy">
+                            <div class="card-overlay"><span>View</span></div>
+                        </a>
+                    </article>
+ 
+                    <article class="card">
+                        <a href="image/design/mr-jackpot.webp" class="card-link" target="_blank">
+                            <img src="image/design/mr-jackpot.webp" alt="Mr Jackpot" loading="lazy">
+                            <div class="card-overlay"><span>View</span></div>
+                        </a>
+                    </article>
+ 
+                    <article class="card">
+                        <a href="image/design/Logo-produit-ayizan-03.webp" class="card-link" target="_blank">
+                            <img src="image/design/Logo-produit-ayizan-03.webp" alt="Logo Ayizan" loading="lazy">
+                            <div class="card-overlay"><span>View</span></div>
+                        </a>
+                    </article>
+ 
+                    <article class="card">
+                        <a href="image/design/TraverséeRéseauxS.webp" class="card-link" target="_blank">
+                            <img src="image/design/TraverséeRéseauxS.webp" alt="Traversée Réseaux" loading="lazy">
+                            <div class="card-overlay"><span>View</span></div>
+                        </a>
+                    </article>
+ 
+                </div>
+            </div>
+        </div>
+ 
+ 
+        <!-- ── SECTION 2 : ILLUSTRATION ── -->
+        <div class="accordion-item" id="acc-illustration">
+ 
+            <button class="accordion-header" onclick="toggleAccordion('acc-illustration')">
+                <div class="acc-left">
+                    <span class="acc-number">02</span>
+                    <div>
+                        <h2 class="acc-title">Illustration</h2>
+                        <p class="acc-count">Add your illustration images below</p>
+                    </div>
+                </div>
+                <div class="acc-arrow">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M5 8l5 5 5-5"
+                          stroke="currentColor" stroke-width="1.5"
+                          stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+            </button>
+ 
+            <div class="accordion-body">
+                <div class="portfolio-grid">
+ 
+                    <!--
+                        AJOUTE TES IMAGES ICI.
+                        Copie ce bloc <article> autant de fois
+                        que tu as d'illustrations.
+                        Change le src et le alt à chaque fois.
+                    -->
+                    <article class="card">
+                        <a href="image/illustration/COVER_1_generation-BOHIO-final.webp" class="card-link" target="_blank">
+                            <img src="image/illustration/COVER_1_generation-BOHIO-final.webp" alt="BOHIO Generation Cover 1" loading="lazy">
+                            <div class="card-overlay"><span>View</span></div>
+                        </a>
+                    </article>
+ 
+                    <article class="card">
+                        <a href="image/illustration/character_design_Sabrina.webp" class="card-link" target="_blank">
+                            <img src="image/illustration/character_design_Sabrina.webp" alt="Character design Sabrina" loading="lazy">
+                            <div class="card-overlay"><span>View</span></div>
+                        </a>
+                    </article>
+ 
+                    <!-- Ajoute d'autres cartes ici -->
+ 
+                </div>
+            </div>
+        </div>
+ 
+ 
+        <!-- ── SECTION 3 : LAYOUT & EDITING ── -->
+        <div class="accordion-item" id="acc-layout">
+ 
+            <button class="accordion-header" onclick="toggleAccordion('acc-layout')">
+                <div class="acc-left">
+                    <span class="acc-number">03</span>
+                    <div>
+                        <h2 class="acc-title">Layout & Editing</h2>
+                        <p class="acc-count">Add your layout images below</p>
+                    </div>
+                </div>
+                <div class="acc-arrow">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M5 8l5 5 5-5"
+                          stroke="currentColor" stroke-width="1.5"
+                          stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+            </button>
+ 
+            <div class="accordion-body">
+                <div class="portfolio-grid">
+ 
+                    <!--
+                        AJOUTE TES IMAGES ICI.
+                        Même structure que les sections au-dessus.
+                    -->
+                    <article class="card">
+                        <a href="image/design/TraverséeRéseauxS.webp" class="card-link" target="_blank">
+                            <img src="image/design/TraverséeRéseauxS.webp" alt="Layout exemple" loading="lazy">
+                            <div class="card-overlay"><span>View</span></div>
+                        </a>
+                    </article>
+ 
+                    <!-- Ajoute d'autres cartes ici -->
+ 
+                </div>
+            </div>
+        </div>
+ 
+    </main>
+ 
+ 
+    <!-- ═══════════════════════=========================
+           JAVASCRIPT ACCORDION
+ 
+           LEÇON : comment fonctionne toggleAccordion()
+ 
+           1. On récupère l'élément par son id
+           2. On vérifie s'il a la classe "open"
+           3. Si oui → on l'enlève (ferme)
+           4. Si non → on l'ajoute (ouvre)
+ 
+           Le CSS fait le reste : il anime la hauteur
+           de .accordion-body selon la présence de "open".
+         ═══════════════════════=========================== -->
+    <script>
+        function toggleAccordion(id) {
+            const item = document.getElementById(id);
+            
+            // Est-ce que cet accordéon est déjà ouvert ?
+            const isOpen = item.classList.contains('open');
+ 
+            // Ferme TOUS les accordéons d'abord
+            document.querySelectorAll('.accordion-item').forEach(function(el) {
+                el.classList.remove('open');
+            });
+ 
+            // Si l'accordéon cliqué était FERMÉ, on l'ouvre
+            // Si il était OUVERT, il reste fermé (toggle)
+            if (!isOpen) {
+                item.classList.add('open');
+            }
+        }
+    </script>
+
+
+
+      <!-- ==========
+              CTA
+           ========== -->
+          <section class="section cta-section" id="contact">
+            <div class="cta-glow"></div>
+            <div class="container">
+              <div class="cta-inner">
+                <div class="badge" style="margin: 0 auto 24px; display: flex; width: fit-content;">
+                  <span class="badge-dot"></span>
+                  We are available for new projects
+                </div>
+                <h2 class="title-lg">
+                    Ready to bring your
+                  <span class="accent italic">Universe</span> ?
+                </h2>
+                <p class="cta-sub">
+                    Tell us about your project. We’ll guide you every step of the way—
+                    from concept to final delivery—with dedication and passion.
+                </p>
+                <div class="cta-btns">
+                  <a href="mailto:contact@noukatstudios.com" class="btn btn-primary">
+                    Send a message
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                      <path d="M2 7h10M8 3l4 4-4 4"
+                        stroke="currentColor" stroke-width="1.3"
+                        stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </a>
+                  <a href="https://www.instagram.com/noukat_studios/"
+                     target="_blank"
+                     class="btn btn-ghost">
+                    <!--
+                      target="_blank" → ouvre le lien dans un
+                      NOUVEL onglet du navigateur.
+                    -->
+                    See on Instagram
+                  </a>
+                </div>
+         
+                <!-- Zone géographique -->
+                <div class="geo-strip">
+                  <strong>Haïti</strong> · Diaspora haitien ·
+                  <strong>International</strong> &nbsp;—&nbsp;
+                  Services available remotely worldwide
+                </div>
+         
+              </div>
+            </div>
+          </section>
+
+
+
+<!-- ══════════════════════════════════════
+       7. FOOTER
+       <footer> = pied de page.
+       Balise sémantique reconnue par les
+       navigateurs et Google.
+  ══════════════════════════════════════ -->
+  <footer class="footer">
+      <div class="container">
+        <div class="footer-inner">
+
+        <!-- LOGO a gauche -->
+        <div class="footer-logo">
+          <img src="assets/icon/new logo Noukat studio-01.png" alt="logo noukat studios" class="footer-logo-img">
+        </div>
+
+        <!-- Liens au centre -->
+        <nav class="footer-links">
+          <a href="https://www.instagram.com/noukat_studios/" class="social-link"><img src="assets/icon/Icon_social_media-ig.svg" alt="logo IG" width="40"></a>
+          <a href="https://www.facebook.com/noukatstudios/" class="social-link"><img src="assets/icon/facebook-app-round-icon-01.svg" alt="logo FB" width="34"></a>
+          <a href="https://www.linkedin.com/company/noukat-studios/?viewAsMember=true" class="social-link"><img src="assets/icon/Icon_social_media-linkedin.svg" alt="logo linkedin" width="40"></a>
+          <a href="https://wa.me/c/50938604335" class="social-link"><img src="assets/icon/Icon_social_media-whatsapp.svg" alt="logo whatsapp" width="40"></a>
+        </nav>
+
+        <!-- Copy a droite -->
+        <p class="footer-copy">
+          &copy; 2026 Noukat Studios · Haïti
+          <!--
+            &copy; = le symbole copyright ©
+            C'est une entité HTML spéciale.
+          -->
+        </p>
+ 
+        </div>
+      </div>
+   </footer>
+        
+  </body>
+
+</html>
