@@ -8,9 +8,9 @@
     --accent-mid: rgba(112, 139, 228, 0.35);
     --white:      #ffffff;
     --text:       rgba(255, 255, 255, 0.956);
-    --muted:      rgba(255, 255, 255, 0.912);
+    --muted:      rgba(255, 255, 255, 0.50);
     --faint:      rgba(255, 255, 255, 0.08);
-    --font-title: 'Open sans', serif;
+    --font-title: 'open sans', serif;
     --font-body:  Arial, sans-serif;
     --radius:     12px;
     --radius-sm:  7px;
@@ -20,7 +20,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
 }
 
 
@@ -73,7 +72,6 @@
   color: #0d4dae;
   font-size: 1rem;
   font-weight: 500;
-  text-transform: uppercase;
   transition: color 0.3s ease;
   position: relative;
   padding-bottom: 4px;
@@ -142,7 +140,6 @@
 
 .sidebar a {
     text-decoration: none;
-    text-transform: uppercase;
     color: #b3e4ff;
     font-size: 1.8rem;
 }
@@ -213,10 +210,10 @@ body {
     background: var(--bg);     /* ← fond sombre indispensable */
 }
 
-.section-bg-image {
+.hero-bg-image {
     position: absolute;
     inset: 0; /* top:0 right:0 bottom:0 left:0 */
-    background-image: url(../image/illustration/cover_illustration_copy.webp);
+    background-image: url(/image/illustration/cover_illustration_copy.webp);
     background-size: cover;
     background-position: right;
     background-repeat: no-repeat;
@@ -449,7 +446,7 @@ body {
 .fc-sub {
     font-size: 11px;
     color: var(--muted);
-}  */
+}
 
 /* BADGE */
 .badge {
@@ -526,7 +523,7 @@ body {
    .services-bg {
     position: absolute;
     inset: 0;
-    background-image: url(../image/illustration/Design-Cover-3.webp);
+    background-image: url(/image/illustration/Design-Cover-3.webp);
     opacity: 0.19; /* Controle la visibiliter */
     background-size: cover;
     background-position: center;
@@ -630,7 +627,7 @@ body {
         inset: 0;
         background-image: 
             linear-gradient(rgba(17,17,22,0.9), rgba(17,17,22,0.95)),
-            url("../image/background/about-bg.webp");
+            url("/image/background/about-bg.webp");
         background-size: cover;
         background-position: center;
         z-index: 0;
