@@ -8,7 +8,7 @@
     --accent-mid: rgba(112, 139, 228, 0.35);
     --white:      #ffffff;
     --text:       rgba(255, 255, 255, 0.956);
-    --muted:      rgba(255, 255, 255, 0.912);
+    --muted:      rgba(255, 255, 255, 0.50);
     --faint:      rgba(255, 255, 255, 0.08);
     --font-title: 'Open sans', serif;
     --font-body:  Arial, sans-serif;
@@ -418,7 +418,7 @@ body {
     justify-content: center;
 }
 
-/* FLOATING CARDS */
+/* FLOATING CARDS 
 .floating-card {
     position: absolute;
     background: rgba(54, 54, 70, 0);
@@ -449,6 +449,7 @@ body {
     font-size: 11px;
     color: var(--muted);
 }
+    */
 
 /* BADGE */
 .badge {
@@ -639,274 +640,274 @@ body {
            SECTION A PROPOS
      ============================ */
      .about-section .container {
-        position: relative;
-        z-index: 1;
+      position: relative;
+      z-index: 1;
+  }
+
+   .about {
+      background: var(--bg2);
+      border-top: 0.5px solid var(--faint);
+      border-bottom: 0.5px solid var(--faint);
     }
 
-     .about {
-        background: var(--bg2);
-        border-top: 0.5px solid var(--faint);
-        border-bottom: 0.5px solid var(--faint);
-      }
-
-     .about-section {
-        position: relative;
-        overflow: hidden;
+   .about-section {
+      position: relative;
+      overflow: hidden;
+  }
+  
+  .about-bg {
+      position: absolute;
+      inset: 0;
+      background-image: 
+          linear-gradient(rgba(17,17,22,0.9), rgba(17,17,22,0.95)),
+          url("../image/background/about-bg.webp");
+      background-size: cover;
+      background-position: center;
+      z-index: 0;
+  }
+ 
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
     }
-    
-    .about-bg {
-        position: absolute;
-        inset: 0;
-        background-image: 
-            linear-gradient(rgba(17,17,22,0.9), rgba(17,17,22,0.95)),
-            url("../image/background/about-bg.webp");
-        background-size: cover;
-        background-position: center;
-        z-index: 0;
+ 
+    .about-left .title-lg {
+      margin-bottom: 20px;
     }
-   
-      .about-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 80px;
-        align-items: center;
-      }
-   
-      .about-left .title-lg {
-        margin-bottom: 20px;
-      }
-   
-      .about-text {
-        font-size: 15px;
-        color: var(--muted);
-        line-height: 1.8;
-        margin-bottom: 16px;
-      }
-   
-      .about-uvp {
-        margin-top: 32px;
-        padding: 24px;
-        background: var(--accent-dim);
-        border: 0.5px solid var(--accent-mid);
-        border-radius: var(--radius);
-        border-left: 3px solid var(--accent);
-      }
-   
-      .uvp-text {
-        font-family: var(--font-title);
-        font-size: 18px;
-        font-style: italic;
-        color: var(--white);
-        line-height: 1.5;
-      }
-   
-      /* Valeurs clés à droite */
-      .about-values {
-        display: flex;
-        flex-direction: column;
-        /* flex-direction: column → les enfants s'empilent
-           verticalement (au lieu de la ligne par défaut) */
-        gap: 4px;
-      }
-   
-      .value-item {
-        display: flex;
-        align-items: flex-start;
-        /* flex-start → aligne en haut (et non au centre) */
-        gap: 18px;
-        padding: 22px;
-        background: var(--bg3);
-        border: 0.5px solid var(--faint);
-        border-radius: var(--radius);
-        transition: border-color 0.25s;
-      }
-   
-      .value-item:hover {
-        border-color: var(--accent-mid);
-      }
-   
-      .value-num {
-        font-family: var(--font-title);
-        font-size: 28px;
-        font-weight: 600;
-        color: var(--accent);
-        line-height: 1;
-        min-width: 36px;
-      }
-   
-      .value-content {}
-   
-      .value-title {
-        font-size: 14px;
-        font-weight: 500;
-        color: var(--white);
-        margin-bottom: 4px;
-      }
-   
-      .value-desc {
-        font-size: 13px;
-        color: var(--muted);
-        line-height: 1.6;
-      }
+ 
+    .about-text {
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+ 
+    .about-uvp {
+      margin-top: 32px;
+      padding: 24px;
+      background: var(--accent-dim);
+      border: 0.5px solid var(--accent-mid);
+      border-radius: var(--radius);
+      border-left: 3px solid var(--accent);
+    }
+ 
+    .uvp-text {
+      font-family: var(--font-title);
+      font-size: 18px;
+      font-style: italic;
+      color: var(--white);
+      line-height: 1.5;
+    }
+ 
+    /* Valeurs clés à droite */
+    .about-values {
+      display: flex;
+      flex-direction: column;
+      /* flex-direction: column → les enfants s'empilent
+         verticalement (au lieu de la ligne par défaut) */
+      gap: 4px;
+    }
+ 
+    .value-item {
+      display: flex;
+      align-items: flex-start;
+      /* flex-start → aligne en haut (et non au centre) */
+      gap: 18px;
+      padding: 22px;
+      background: var(--bg3);
+      border: 0.5px solid var(--faint);
+      border-radius: var(--radius);
+      transition: border-color 0.25s;
+    }
+ 
+    .value-item:hover {
+      border-color: var(--accent-mid);
+    }
+ 
+    .value-num {
+      font-family: var(--font-title);
+      font-size: 28px;
+      font-weight: 600;
+      color: var(--accent);
+      line-height: 1;
+      min-width: 36px;
+    }
+ 
+    .value-content {}
+ 
+    .value-title {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+ 
+    .value-desc {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
 
 
-      /* ══════════════════════════════════════════════════
-       5. SECTION CLIENTS CIBLES (PERSONAS)
+    /* ══════════════════════════════════════════════════
+     5. SECTION CLIENTS CIBLES (PERSONAS)
+  ══════════════════════════════════════════════════ */
+  .personas-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+ 
+    .persona-card {
+      background: var(--bg3);
+      border: 0.5px solid var(--faint);
+      border-radius: var(--radius);
+      padding: 28px;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+ 
+    .persona-card:hover {
+      border-color: var(--accent-mid);
+      transform: translateY(-4px);
+    }
+ 
+    .persona-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--accent-dim);
+      border: 1px solid var(--accent-mid);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+      font-family: var(--font-title);
+      font-size: 18px;
+      color: var(--accent);
+    }
+ 
+    .persona-type {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+ 
+    .persona-title {
+      font-family: var(--font-title);
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+ 
+    .persona-desc {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 18px;
+    }
+ 
+    .persona-needs {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+ 
+    .need-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+ 
+    .need-dot {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+      /* flex-shrink: 0 → le point ne rétrécit jamais */
+    }
+ 
+ 
+    /* ══════════════════════════════════════════════════
+       6. SECTION CTA (APPEL À L'ACTION)
     ══════════════════════════════════════════════════ */
-    .personas-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 20px;
-      }
-   
-      .persona-card {
-        background: var(--bg3);
-        border: 0.5px solid var(--faint);
-        border-radius: var(--radius);
-        padding: 28px;
-        transition: border-color 0.3s, transform 0.3s;
-      }
-   
-      .persona-card:hover {
-        border-color: var(--accent-mid);
-        transform: translateY(-4px);
-      }
-   
-      .persona-avatar {
-        width: 48px;
-        height: 48px;
-        border-radius: 50%;
-        background: var(--accent-dim);
-        border: 1px solid var(--accent-mid);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: 18px;
-        font-family: var(--font-title);
-        font-size: 18px;
-        color: var(--accent);
-      }
-   
-      .persona-type {
-        font-size: 11px;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-        color: var(--accent);
-        margin-bottom: 8px;
-      }
-   
-      .persona-title {
-        font-family: var(--font-title);
-        font-size: 20px;
-        font-weight: 600;
-        color: var(--white);
-        margin-bottom: 12px;
-      }
-   
-      .persona-desc {
-        font-size: 13px;
-        color: var(--muted);
-        line-height: 1.7;
-        margin-bottom: 18px;
-      }
-   
-      .persona-needs {
-        display: flex;
-        flex-direction: column;
-        gap: 6px;
-      }
-   
-      .need-item {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        font-size: 12px;
-        color: var(--muted);
-      }
-   
-      .need-dot {
-        width: 4px;
-        height: 4px;
-        border-radius: 50%;
-        background: var(--accent);
-        flex-shrink: 0;
-        /* flex-shrink: 0 → le point ne rétrécit jamais */
-      }
-   
-   
-      /* ══════════════════════════════════════════════════
-         6. SECTION CTA (APPEL À L'ACTION)
-      ══════════════════════════════════════════════════ */
-      .cta-section {
-        text-align: center;
-        position: relative;
-        overflow: hidden;
-      }
-   
-      .cta-glow {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        /*
-          transform: translate(-50%, -50%) →
-          déplace l'élément de -50% de SA PROPRE taille.
-          Combiné avec top:50% left:50%, ça centre parfaitement.
-        */
-        width: 600px;
-        height: 300px;
-        border-radius: 50%;
-        background: radial-gradient(
-          ellipse,
-          rgba(127, 119, 221, 0.15) 0%,
-          transparent 70%
-        );
-        pointer-events: none;
-      }
-   
-      .cta-inner {
-        position: relative;
-        max-width: 620px;
-        margin: 0 auto;
-      }
-   
-      .cta-inner .title-lg {
-        margin-bottom: 18px;
-      }
-   
-      .cta-sub {
-        font-size: 16px;
-        color: var(--muted);
-        margin-bottom: 40px;
-        line-height: 1.7;
-      }
-   
-      .cta-btns {
-        display: flex;
-        gap: 14px;
-        justify-content: center;
-        flex-wrap: wrap;
-      }
-   
-      /* Zone géographique */
-      .geo-strip {
-        margin-top: 56px;
-        padding: 20px;
-        background: var(--faint);
-        border-radius: var(--radius);
-        font-size: 13px;
-        color: var(--muted);
-        letter-spacing: 0.03em;
-        text-align: center;
-      }
-   
-      .geo-strip strong {
-        color: var(--text);
-        font-weight: 500;
-      }
-   
-   
-      /* ══════════════════════════════════════════════════
+    .cta-section {
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+ 
+    .cta-glow {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      /*
+        transform: translate(-50%, -50%) →
+        déplace l'élément de -50% de SA PROPRE taille.
+        Combiné avec top:50% left:50%, ça centre parfaitement.
+      */
+      width: 600px;
+      height: 300px;
+      border-radius: 50%;
+      background: radial-gradient(
+        ellipse,
+        rgba(127, 119, 221, 0.15) 0%,
+        transparent 70%
+      );
+      pointer-events: none;
+    }
+ 
+    .cta-inner {
+      position: relative;
+      max-width: 620px;
+      margin: 0 auto;
+    }
+ 
+    .cta-inner .title-lg {
+      margin-bottom: 18px;
+    }
+ 
+    .cta-sub {
+      font-size: 16px;
+      color: var(--muted);
+      margin-bottom: 40px;
+      line-height: 1.7;
+    }
+ 
+    .cta-btns {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+ 
+    /* Zone géographique */
+    .geo-strip {
+      margin-top: 56px;
+      padding: 20px;
+      background: var(--faint);
+      border-radius: var(--radius);
+      font-size: 13px;
+      color: var(--muted);
+      letter-spacing: 0.03em;
+      text-align: center;
+    }
+ 
+    .geo-strip strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+
+    /* ══════════════════════════════════════════════════
          7. FOOTER
       ══════════════════════════════════════════════════ */
       .footer {
@@ -939,28 +940,28 @@ body {
         display: flex;
         gap: 24px;
       }
-   
+
       .social-link {
         display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        transition: transform 0.3s ease, opacity 0.3s ease;
+        transition: transform 0.3s ease;
     }
-   
-    .social-link:hover {
-        transform: translateY(-5px); /* monte légèrement */
-    }
-   
+    
+    .social-link:hover { transform: translateY(-4px); }
+    
     .social-link img {
-        width: 32px;
-        height: 32px;
-        transition: transform 0.3s ease, filter 0.3s ease;
+        width: 30px;
+        height: 30px;
+        transition: filter 0.3s ease;
     }
-
+    
     .social-link:hover img {
-        transform: scale(1.1);
         filter: brightness(0) invert(1);
-        box-shadow: 0 0 10px rgba(38, 150, 255, 0.6);
+    }
+    
+    .footer-copy {
+        font-size: 12px;
+        color: rgba(255,255,255,0.3);
+        letter-spacing: 0.03em;
     }
    
    
