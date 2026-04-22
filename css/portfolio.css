@@ -1,0 +1,612 @@
+/* ══════════════════════════════════════════════════
+   PORTFOLIO.CSS — Noukat Studios
+   ══════════════════════════════════════════════════ */
+
+/* VARIABLES */
+:root {
+    --bg:         #1a1a22;
+    --bg2:        #22222b;
+    --bg3:        #262632;
+    --accent:     #1b75fb;
+    --accent-dim: rgba(27, 117, 251, 0.12);
+    --accent-mid: rgba(27, 117, 251, 0.35);
+    --white:      #ffffff;
+    --text:       rgba(255, 255, 255, 0.92);
+    --muted:      rgba(255, 255, 255, 0.50);
+    --faint:      rgba(255, 255, 255, 0.08);
+    --font-title: 'Open sans', serif;
+    --font-body:  Arial, sans-serif;
+    --radius:     12px;
+    --radius-sm:  7px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    padding-top: 100px; /* hauteur de la navbar */
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    line-height: 1.6;
+}
+
+
+/* ══════════════════════════════════════════════════
+   NAVBAR
+   ══════════════════════════════════════════════════ */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #e4e6e8;
+    padding: 0 2.5rem;
+    z-index: 1000;
+}
+
+.logo-nav-left img {
+    height: 120px;
+    width: auto;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.logo-nav-left img:hover {
+    transform: rotate(-5deg);
+}
+
+.nav-links {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 36px;
+    list-style: none;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #0d4dae;
+    font-size: 1rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+    position: relative;
+    padding-bottom: 4px;
+}
+
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 0%;
+    height: 2px;
+    background: #1b75fb;
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover { color: #1b75fb; }
+.nav-links a:hover::after { width: 100%; }
+
+.nav-right {
+    display: flex;
+    align-items: center;
+}
+
+.nav-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 9px 20px;
+    background: #1b75fb;
+    color: #fff;
+    text-decoration: none;
+    border-radius: var(--radius-sm);
+    font-size: 13px;
+    font-weight: 500;
+    transition: background 0.25s, transform 0.25s;
+}
+
+.nav-btn:hover {
+    background: #2696ff;
+    transform: translateY(-2px);
+}
+
+.menu-icon {
+    font-size: 2.5rem;
+    cursor: pointer;
+    display: none;
+    color: #0d4dae;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    height: 100vh;
+    width: 250px;
+    background-color: #1b75fb;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    gap: 2rem;
+    transition: 0.3s;
+    z-index: 1001;
+    list-style: none;
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+}
+
+.close-btn {
+    font-size: 2rem;
+    cursor: pointer;
+    align-self: flex-end;
+    color: #fff;
+}
+
+.sidebar li a:hover { opacity: 0.7; }
+
+
+/* ══════════════════════════════════════════════════
+   CONTENEURS — deux versions pour éviter les conflits
+
+   portfolio-container → pour le hero et les accordéons
+   cta-container       → pour le CTA et le footer
+
+   On évite de redéfinir .container qui peut
+   entrer en conflit avec d'autres pages.
+   ══════════════════════════════════════════════════ */
+.portfolio-container,
+.cta-container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 28px;
+}
+
+
+/* ══════════════════════════════════════════════════
+   HERO DU PORTFOLIO
+   ══════════════════════════════════════════════════ */
+.portfolio-hero {
+    padding: 80px 0 60px;
+    border-bottom: 0.5px solid var(--faint);
+}
+
+.portfolio-label {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 16px;
+}
+
+.portfolio-h1 {
+    /*
+      font-size: clamp(MIN, PRÉFÉRÉ, MAX)
+      S'adapte automatiquement à la taille de l'écran.
+    */
+    font-size: clamp(52px, 8vw, 100px);
+    font-family: var(--font-title);
+    font-weight: 800;
+    line-height: 1.0;
+    color: var(--white);
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.portfolio-sub {
+    font-size: 16px;
+    color: var(--muted);
+    max-width: 480px;
+}
+
+.accent { color: var(--accent); }
+.italic { font-style: italic; }
+
+
+/* ══════════════════════════════════════════════════
+   ACCORDÉONS — la pièce centrale de la page
+
+   LEÇON CSS — comment animer une hauteur :
+   On ne peut pas animer height: 0 → height: auto
+   directement en CSS. Le navigateur ne sait pas
+   calculer "auto" pendant l'animation.
+
+   SOLUTION : on utilise max-height.
+   - Fermé : max-height: 0    → invisible
+   - Ouvert : max-height: 5000px → tout visible
+   Le navigateur anime entre les deux valeurs.
+
+   overflow: hidden → cache ce qui dépasse 0px
+   transition → rend le changement progressif
+   ══════════════════════════════════════════════════ */
+.accordion-item {
+    border-bottom: 0.5px solid var(--faint);
+}
+
+.accordion-item:first-child {
+    border-top: 0.5px solid var(--faint);
+    margin-top: 40px;
+}
+
+/* BARRE CLIQUABLE */
+.accordion-header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 32px 0;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--text);
+    text-align: left;
+    transition: opacity 0.2s;
+}
+
+.accordion-header:hover {
+    opacity: 0.75;
+}
+
+.acc-left {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.acc-number {
+    font-family: var(--font-title);
+    font-size: 13px;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+    min-width: 28px;
+}
+
+.acc-title {
+    font-family: var(--font-title);
+    font-size: clamp(22px, 3vw, 36px);
+    font-weight: 600;
+    color: var(--white);
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    margin-bottom: 4px;
+    transition: color 0.2s;
+}
+
+.accordion-item.open .acc-title {
+    color: var(--accent); /* bleu quand ouvert */
+}
+
+.acc-count {
+    font-size: 12px;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+}
+
+/* FLÈCHE — tourne quand ouvert */
+.acc-arrow {
+    color: var(--muted);
+    transition: transform 0.35s ease, color 0.2s;
+    flex-shrink: 0;
+}
+
+.accordion-item.open .acc-arrow {
+    transform: rotate(180deg); /* ← flèche vers le haut */
+    color: var(--accent);
+}
+
+/* CORPS DE L'ACCORDÉON — la zone qui s'ouvre/se ferme */
+.accordion-body {
+    max-height: 0;             /* ← fermé : hauteur nulle */
+    overflow: hidden;          /* ← cache le contenu qui dépasse */
+    transition: max-height 0.55s ease, padding 0.35s ease;
+    /* 0.55s = durée de l'animation d'ouverture */
+}
+
+.accordion-item.open .accordion-body {
+    max-height: 5000px;        /* ← ouvert : assez grand pour tout contenir */
+    padding-bottom: 40px;
+}
+
+
+/* ══════════════════════════════════════════════════
+   GRILLE D'IMAGES
+   ══════════════════════════════════════════════════ */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+    margin-top: 24px;
+}
+
+/* CARTE */
+.card {
+    position: relative;
+    overflow: hidden;
+    /*
+      overflow: hidden + border-radius sur une carte
+      avec une image qui scale au hover → l'image
+      ne déborde pas en dehors de la carte.
+    */
+    border-radius: 1px;
+    background: var(--bg3);
+}
+
+/* IMAGE */
+.card img {
+    width: 100%;
+    height: 490px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.45s ease;
+    /*
+      transition sur transform → l'image se zoome
+      doucement au survol, pas brusquement.
+    */
+}
+
+.card:hover img {
+    transform: scale(1.04); /* zoom léger au survol */
+}
+
+/* OVERLAY "View" qui apparaît au survol */
+.card-overlay {
+    position: absolute;
+    inset: 0;               /* couvre toute la carte */
+    background: rgba(27, 117, 251, 0.55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;             /* invisible par défaut */
+    transition: opacity 0.3s ease;
+}
+
+.card:hover .card-overlay {
+    opacity: 1;             /* visible au survol */
+}
+
+.card-overlay span {
+    color: #fff;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border: 1px solid rgba(255,255,255,0.6);
+    padding: 8px 20px;
+    border-radius: 99px;
+}
+
+.card-link {
+    display: block;
+    text-decoration: none;
+}
+
+
+/* ══════════════════════════════════════════════════
+   CTA
+   ══════════════════════════════════════════════════ */
+.section { padding: 100px 0; }
+
+.cta-section {
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    margin-top: 40px;
+}
+
+.cta-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 300px;
+    border-radius: 50%;
+    background: radial-gradient(ellipse, rgba(27,117,251,0.12) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.cta-inner {
+    position: relative;
+    max-width: 620px;
+    margin: 0 auto;
+}
+
+.title-lg {
+    font-family: var(--font-title);
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 1.15;
+    color: var(--white);
+    margin-bottom: 16px;
+}
+
+.cta-sub {
+    font-size: 16px;
+    color: var(--muted);
+    margin-bottom: 40px;
+    line-height: 1.7;
+}
+
+.cta-btns {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 13px 28px;
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    border: none;
+    text-decoration: none;
+}
+
+.btn-primary {
+    background: var(--accent);
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background: #f89810;
+    transform: translateY(-2px);
+}
+
+.btn-ghost {
+    background: transparent;
+    color: var(--muted);
+    border: 0.5px solid rgba(255,255,255,0.2);
+}
+
+.btn-ghost:hover {
+    color: var(--white);
+    border-color: rgba(255,255,255,0.5);
+    transform: translateY(-2px);
+}
+
+.geo-strip {
+    margin-top: 48px;
+    padding: 18px 24px;
+    background: var(--faint);
+    border-radius: var(--radius);
+    font-size: 13px;
+    color: var(--muted);
+    letter-spacing: 0.02em;
+}
+
+.geo-strip strong { color: var(--text); font-weight: 500; }
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: var(--accent-dim);
+    border: 0.5px solid var(--accent-mid);
+    border-radius: 99px;
+    padding: 5px 14px;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #fbc31b;
+}
+
+.badge-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+}
+
+
+/* ══════════════════════════════════════════════════
+   FOOTER
+   ══════════════════════════════════════════════════ */
+.footer {
+    border-top: 0.5px solid var(--faint);
+    padding: 30px 0;
+}
+
+.footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-logo-img {
+    width: 150px;
+    height: auto;
+    display: block;
+}
+
+.footer-links {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.social-link {
+    display: inline-flex;
+    transition: transform 0.3s ease;
+}
+
+.social-link:hover { transform: translateY(-4px); }
+
+.social-link img {
+    width: 30px;
+    height: 30px;
+    transition: filter 0.3s ease;
+}
+
+.social-link:hover img {
+    filter: brightness(0) invert(1);
+}
+
+.footer-copy {
+    font-size: 12px;
+    color: rgba(255,255,255,0.3);
+    letter-spacing: 0.03em;
+}
+
+
+/* ══════════════════════════════════════════════════
+   RESPONSIVE
+   ══════════════════════════════════════════════════ */
+@media (max-width: 900px) {
+    .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-links  { display: none; }
+    .nav-right  { display: none; }
+    .menu-icon  { display: block; }
+
+    .logo-nav-left img { height: 70px; }
+
+    .portfolio-grid { grid-template-columns: 1fr; }
+
+    .card img { height: 260px; }
+
+    .acc-title { font-size: 20px; }
+
+    .footer-inner {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-links { justify-content: center; }
+
+    .footer-logo-img { width: 120px; }
+}
