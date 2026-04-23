@@ -10,8 +10,8 @@
     --text:       rgba(255, 255, 255, 0.956);
     --muted:      rgba(255, 255, 255, 0.50);
     --faint:      rgba(255, 255, 255, 0.08);
-    --font-title: 'Open sans', serif;
-    --font-body:  Arial, sans-serif;
+    --font-title: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+    --font-body:  Open Sans, sans-serif;
     --radius:     12px;
     --radius-sm:  7px;
 }
