@@ -212,15 +212,69 @@ body {
     background: var(--bg);     /* ← fond sombre indispensable */
 }
 
-.hero-bg-image {
+/* ══════════════════════════
+   VIDEO BACKGROUND HERO
+   ══════════════════════════ */
+
+   .hero-video-bg {
     position: absolute;
-    inset: 0; /* top:0 right:0 bottom:0 left:0 */
-    background-image: url(../image/illustration/cover_illustration_copy.webp);
-    background-size: cover;
-    background-position: right;
-    background-repeat: no-repeat;
-    opacity: 0.19; /* Controle la visibiliter */
+    inset: 0;              /* couvre toute la section hero */
     z-index: 0;
+    overflow: hidden;
+}
+
+.hero-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /*
+        object-fit: cover → la vidéo remplit tout l'espace
+        sans se déformer, comme background-size: cover
+        pour une image.
+    */
+    object-position: center;
+
+    /* FILTRE : assombrit + donne une teinte bleue */
+    filter:
+        brightness(0.35)
+        saturate(1.4)
+        hue-rotate(20deg);
+    /*
+        brightness(0.35) → réduit la luminosité à 35%
+                           pour que le texte reste lisible
+        saturate(1.4)    → intensifie les couleurs
+        hue-rotate(200deg) → décale les couleurs vers le bleu
+                             0° = normal, 120° = vert, 240° = bleu
+    */
+
+    pointer-events: none;
+    /* La souris "passe à travers" la vidéo */
+}
+
+/* FALLBACK — si la vidéo ne se charge pas,
+   un fond sombre avec teinte bleue s'affiche */
+.hero-video-bg::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(10, 15, 40, 0.6) 0%,
+        rgba(27, 117, 251, 0.15) 100%
+    );
+    pointer-events: none;
+}
+
+/* MOBILE — désactive la vidéo sur petit écran
+   pour économiser la bande passante */
+@media (max-width: 768px) {
+    .hero-video {
+        display: none;
+    }
+
+    .hero-video-bg {
+        background: var(--bg);
+    }
 }
 
    .hero-grid-bg {
@@ -556,7 +610,7 @@ body {
    .services-bg {
     position: absolute;
     inset: 0;
-    background-image: url(../image/illustration/Design-Cover-3.webp);
+    background-image: url(../image/illustration/new_illustration_cover.webp);
     opacity: 0.19; /* Controle la visibiliter */
     background-size: cover;
     background-position: center;
@@ -1070,5 +1124,249 @@ body {
       }
 
       }
+
+
+      /* ══════════════════════════════════════════════════
+   SHOWCASE CARDS — fiches animées style studio
+   ══════════════════════════════════════════════════ */
+
+/* PILE DE 3 CARTES — version Hero et About */
+.showcase-stack {
+  position: relative;
+  width: 100%;
+  max-width: 380px;
+  height: 480px;
+  margin: 0 auto;
+}
+
+/* CHAQUE CARTE dans la pile */
+.showcase-card {
+  position: absolute;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(27, 117, 251, 0.25);
+  background: var(--bg3);
+  box-shadow:
+      0 20px 60px rgba(0, 0, 0, 0.5),
+      0 0 0 0.5px rgba(255, 255, 255, 0.06);
+  /*
+      box-shadow multiple : on peut en empiler.
+      Virgule = nouvelle ombre.
+      La première donne la profondeur.
+      La deuxième est un contour très fin.
+  */
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  cursor: pointer;
+}
+
+/* IMAGES dans les cartes */
+.showcase-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.showcase-card:hover img {
+  transform: scale(1.04);
+}
+
+/* ÉTIQUETTE en bas de chaque carte */
+.showcase-label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 16px;
+  background: linear-gradient(
+      to top,
+      rgba(10, 10, 20, 0.92) 0%,
+      transparent 100%
+  );
+  /*
+      linear-gradient to top → fond sombre en bas,
+      transparent vers le haut.
+      Donne lisibilité au texte sans cacher l'image.
+  */
+}
+
+.sc-tag {
+  display: inline-block;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: rgba(27, 117, 251, 0.15);
+  border: 0.5px solid rgba(27, 117, 251, 0.4);
+  border-radius: 99px;
+  padding: 3px 10px;
+  margin-bottom: 6px;
+}
+
+.sc-title {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--white);
+  letter-spacing: 0.02em;
+}
+
+/* ══ POSITIONNEMENT DES 3 CARTES ══════════════════
+
+ card-3 (derrière)  → décalée en bas à droite
+ card-2 (milieu)    → légèrement décalée
+ card-1 (devant)    → position principale
+
+ L'effet de profondeur vient du décalage
+ et de la rotation légère de chaque carte.
+*/
+
+.card-3 {
+  width: 75%;
+  height: 65%;
+  bottom: 0;
+  right: 0;
+  transform: rotate(6deg) translateY(20px);
+  opacity: 0.6;
+  z-index: 1;
+  /* Animation au chargement de la page */
+  animation: cardReveal3 0.8s 0.6s ease both;
+}
+
+.card-2 {
+  width: 82%;
+  height: 72%;
+  bottom: 30px;
+  right: 20px;
+  transform: rotate(3deg) translateY(10px);
+  opacity: 0.8;
+  z-index: 2;
+  animation: cardReveal2 0.8s 0.3s ease both;
+}
+
+.card-1 {
+  width: 88%;
+  height: 78%;
+  bottom: 60px;
+  left: 0;
+  transform: rotate(-2deg);
+  z-index: 3;
+  animation: cardReveal1 0.8s 0s ease both;
+}
+
+/* Hover sur la pile : les cartes s'écartent */
+.showcase-stack:hover .card-1 {
+  transform: rotate(-4deg) translateY(-8px);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+}
+
+.showcase-stack:hover .card-2 {
+  transform: rotate(5deg) translateY(5px) translateX(15px);
+}
+
+.showcase-stack:hover .card-3 {
+  transform: rotate(10deg) translateY(20px) translateX(20px);
+  opacity: 0.75;
+}
+
+/* ══ VERSION ABOUT ════════════════════════════════
+ Dans About, la pile est intégrée à la grille.
+ On remplace about-values par showcase-stack
+ en gardant les mêmes proportions.
+*/
+.about-stack {
+  height: 420px;
+  max-width: 340px;
+  align-self: center;
+}
+
+/* ══ BANDE STRIP PORTFOLIO ══════════════════════ */
+.showcase-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  padding: 32px 0 40px;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding-left: 28px;
+  padding-right: 28px;
+  border-bottom: 0.5px solid var(--faint);
+}
+
+/* Dans la bande, les cartes sont en position relative */
+.strip-card {
+  position: relative;    /* ← écrase le position: absolute de base */
+  height: 220px;
+  border-radius: 10px;
+  overflow: hidden;
+  animation: cardReveal1 0.6s ease both;
+}
+
+.strip-card:nth-child(1) { animation-delay: 0s; }
+.strip-card:nth-child(2) { animation-delay: 0.1s; }
+.strip-card:nth-child(3) { animation-delay: 0.2s; }
+.strip-card:nth-child(4) { animation-delay: 0.3s; }
+
+/* ══ ANIMATIONS D'ENTRÉE ══════════════════════════
+
+ Chaque carte entre depuis le bas avec un
+ délai différent → effet "stagger" (en cascade).
+ C'est la signature des sites de studios créatifs.
+*/
+@keyframes cardReveal1 {
+  from {
+      opacity: 0;
+      transform: rotate(-2deg) translateY(40px);
+  }
+  to {
+      opacity: 1;
+      transform: rotate(-2deg) translateY(0);
+  }
+}
+
+@keyframes cardReveal2 {
+  from {
+      opacity: 0;
+      transform: rotate(3deg) translateY(40px);
+  }
+  to {
+      opacity: 0.8;
+      transform: rotate(3deg) translateY(10px);
+  }
+}
+
+@keyframes cardReveal3 {
+  from {
+      opacity: 0;
+      transform: rotate(6deg) translateY(40px);
+  }
+  to {
+      opacity: 0.6;
+      transform: rotate(6deg) translateY(20px);
+  }
+}
+
+/* ══ RESPONSIVE ══════════════════════════════════ */
+@media (max-width: 900px) {
+  .showcase-strip {
+      grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  /* Cache les piles sur mobile — trop compact */
+  .showcase-stack {
+      display: none;
+  }
+
+  .showcase-strip {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+  }
+
+  .strip-card {
+      height: 160px;
+  }
+}
 
 
