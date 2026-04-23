@@ -235,7 +235,7 @@ body {
     inset: 0;             /* couvre tout le hero */
     z-index: 0;           /* derrière le texte */
 
-    background-image: url(/image/illustration/sketching_cover1.webp);
+    background-image: url("../image/illustration/sketching_cover1.webp");
     /*
         Change le chemin vers l'image que tu veux.
         "../" remonte d'un dossier depuis css/
