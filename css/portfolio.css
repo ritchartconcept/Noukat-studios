@@ -14,8 +14,8 @@
     --text:       rgba(255, 255, 255, 0.92);
     --muted:      rgba(255, 255, 255, 0.50);
     --faint:      rgba(255, 255, 255, 0.08);
-    --font-title: 'Open sans', serif;
-    --font-body:  Arial, sans-serif;
+    --font-title: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+    --font-body:  Open Sans, sans-serif;
     --radius:     12px;
     --radius-sm:  7px;
 }
@@ -184,6 +184,55 @@ body {
 .portfolio-hero {
     padding: 80px 0 60px;
     border-bottom: 0.5px solid var(--faint);
+    position: relative;   /* nécessaire pour que l'enfant absolute fonctionne */
+    overflow: hidden;     /* empêche l'image de déborder */
+}
+
+/* L'IMAGE DE FOND */
+.portfolio-hero-bg {
+    position: absolute;
+    inset: 0;             /* couvre tout le hero */
+    z-index: 0;           /* derrière le texte */
+
+    background-image: url(../image/illustration/sketching_cover1.webp);
+    /*
+        Change le chemin vers l'image que tu veux.
+        "../" remonte d'un dossier depuis css/
+        vers la racine, puis entre dans image/
+    */
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+
+    opacity: 0.15;        /* ajuste entre 0.1 et 0.4 selon ton goût */
+}
+
+/* LE DÉGRADÉ PAR DESSUS — efface l'image vers la droite */
+.portfolio-hero-bg::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(
+        to right,
+        transparent 0%,       /* gauche : image visible */
+        transparent 30%,      /* image encore visible jusqu'ici */
+        var(--bg) 75%,        /* fondu vers la couleur du body */
+        var(--bg) 100%        /* droite : complètement opaque */
+    );
+    /*
+        to right → le dégradé va de gauche à droite.
+        transparent = image visible.
+        var(--bg) = couleur #1a1a22 de ton body.
+        Le fondu commence à 30% et finit à 75%.
+        Ajuste ces pourcentages selon l'effet que tu veux.
+    */
+}
+
+/* Le conteneur du texte doit être AU-DESSUS du fond */
+.portfolio-hero .portfolio-container {
+    position: relative;
+    z-index: 1;           /* au-dessus de z-index: 0 du fond */
 }
 
 .portfolio-label {
@@ -217,6 +266,8 @@ body {
 
 .accent { color: var(--accent); }
 .italic { font-style: italic; }
+
+
 
 
 /* ══════════════════════════════════════════════════
