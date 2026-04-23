@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="author" content="Fritzner Richard">
         <title>Noukat studios</title>
-        <link rel="icon" href="assets/icon/favicon_io/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="assets/icon/favicon_io/android-chrome-512x512.png" type="image/x-icon">
         <link rel="stylesheet" href="css/stylesnoukat.css">
     </head>
 
@@ -77,7 +77,29 @@
               HERO SECTION (THE MAIN PAGE
              ============================== -->
         <section class="hero" id="hero">
-            <div class="hero-bg-image"></div> <!-- Ajout d'image en background -->
+            <!-- VIDEO BACKGROUND — remplace hero-bg-image -->
+       <div class="hero-video-bg">
+          <video
+           class="hero-video"
+           autoplay
+           muted
+           loop
+           playsinline>
+           <!--
+          autoplay  → démarre automatiquement
+          muted     → OBLIGATOIRE pour autoplay dans les navigateurs modernes
+          loop      → recommence en boucle
+          playsinline → empêche le fullscreen automatique sur iPhone
+
+          Ajoute plusieurs <source> pour la compatibilité.
+          Le navigateur utilise le premier format qu'il supporte.
+          Si aucun ne fonctionne, l'image de fond prend le relais.
+            -->
+            <source src="video/animation_2_teaser_Wa_Henri.webm" type="video/webm">
+            <source src="video/animation_1.webm"  type="video/mp4">
+            <source src="video/animation_3.webm"  type="video/mp4">
+          </video>
+        </div>
             <div class="hero-grid-bg"></div>
             <div class="hero-glow"></div>
         
@@ -117,7 +139,7 @@
         
                         <div class="hero-stats">
                             <div class="stat">
-                                <div class="stat-num">10+</div>
+                                <div class="stat-num">5+</div>
                                 <div class="stat-label">Years of experience</div>
                             </div>
                             <div class="stat">
@@ -131,30 +153,51 @@
                         </div>
         
                     </div>
+
+
+                    <!-- SHOWCASE CARDS — panneau animé style studio -->
+<div class="showcase-stack">
+
+  <div class="showcase-card card-1">
+      <img src="image/illustration/COVER_1_generation-BOHIO-final.webp"
+           alt="BOHIO Generation">
+      <div class="showcase-label">
+          <span class="sc-tag">BD · Webtoon</span>
+          <p class="sc-title">BOHIO Generation</p>
+      </div>
+  </div>
+
+  <div class="showcase-card card-2">
+      <img src="image/illustration/character_design_Sabrina.webp"
+           alt="Character Design">
+      <div class="showcase-label">
+          <span class="sc-tag">Illustration</span>
+          <p class="sc-title">Character Design</p>
+      </div>
+  </div>
+
+  <div class="showcase-card card-3">
+      <img src="image/design/Logo_brand_Orizen-05.webp"
+           alt="Branding">
+      <div class="showcase-label">
+          <span class="sc-tag">Branding</span>
+          <p class="sc-title">Visual Identity</p>
+      </div>
+  </div>
+
+</div>
+
         
-                    <!-- COLONNE DROITE — Artwork -->
+                    <!-- COLONNE DROITE — Artwork 
                     <div class="hero-right">
                         <div class="hero-art-frame">
 
-                            <!-- L'IMAGE PRINCIPALE — remplace le placeholder -->
-                            <img
-                                src="image/illustration/COVER_1_generation-BOHIO-final.webp"
+                             L'IMAGE PRINCIPALE — remplace le placeholder
+                            <img src="image/illustration/COVER_1_generation-BOHIO-final.webp"
                                 alt="BOHIO Generation — Noukat Studios"
-                                class="hero-artwork"
-                            >
-                        
-                            <!-- Tags flottants — restent par dessus l'image 
-                            <div class="floating-card top-right">
-                                <div class="fc-title">Bohio Generation</div>
-                                <div class="fc-sub">BD · Webtoon</div>
-                            </div>
-                            <div class="floating-card bottom-left">
-                                <div class="fc-title">Animation 2D</div>
-                                <div class="fc-sub">Identité visuelle</div>
-                            </div> -->
-                        
+                                class="hero-artwork">
                         </div>
-                    </div>
+                    </div> -->
         
                 </div>
             </div>
