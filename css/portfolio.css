@@ -449,6 +449,99 @@ body {
 
 
 /* ══════════════════════════════════════════════════
+   SECTION VIDEO ANIMATION
+   ══════════════════════════════════════════════════ */
+
+/* Conteneur principal — même style que les accordéons */
+.video-section {
+    border-top: 0.5px solid var(--faint);
+    border-bottom: 0.5px solid var(--faint);
+    padding: 40px 0 60px;
+    margin-top: 0;
+}
+
+/* Header de la section — copie le style des accordéons */
+.video-section-header {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding: 32px 0;
+    /*
+        Pas de cursor: pointer ici car ce n'est
+        pas cliquable — c'est juste un titre.
+    */
+}
+
+/* Grille des vidéos — 3 colonnes comme le portfolio-grid */
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3px;
+    margin-top: 8px;
+}
+
+/* Carte individuelle */
+.video-card {
+    background: transparent; /* ← plus de fond sombre */        
+    border: none;                   /* ← plus de bordure */
+    border-radius: 0;               /* ← coins droits */
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.video-card:hover {
+    border-color: transparent;      /* ← pas de bordure au hover */
+    transform: translateY(-4px);    /* ← garde l'effet de lift */
+}
+
+/* Le wrapper du ratio 16/9 — technique CSS classique
+   pour garder le ratio d'une iframe ou vidéo responsive.
+
+   COMMENT ÇA MARCHE :
+   padding-top: 56.25% = 9/16 × 100 = 56.25%
+   position: relative sur le parent
+   position: absolute + inset: 0 sur l'enfant
+   → l'iframe prend toujours exactement 16/9
+     peu importe la largeur de l'écran.
+*/
+.video-wrapper {
+    position: relative;
+    padding-top: 56.25%;    /* ratio 16:9 */
+    background: #000;
+    overflow: hidden;
+}
+
+.video-wrapper iframe,
+.video-wrapper video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 0;
+}
+
+/* Supprime ou ignore .video-info — plus utilisé */
+.video-info {
+    display: none;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .video-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .video-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* ══════════════════════════════════════════════════
    CTA
    ══════════════════════════════════════════════════ */
 .section { padding: 100px 0; }
