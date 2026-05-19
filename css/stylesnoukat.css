@@ -267,13 +267,11 @@ body {
 
 /* MOBILE — désactive la vidéo sur petit écran
    pour économiser la bande passante */
-@media (max-width: 768px) {
-    .hero-video {
-        display: none;
-    }
-
-    .hero-video-bg {
-        background: var(--bg);
+@media (max-width: 600px) {
+    .hero-video-bg video {
+        /* La vidéo reste visible mais on peut
+           l'alléger avec une version compressée */
+        object-position: 30% center; /* cadre mieux sur mobile */
     }
 }
 
