@@ -110,8 +110,13 @@
 .menu-icon {
     font-size: 2.5rem;
     cursor: pointer;
-    display: none; /*  cache sur desktop */
-    color: #0d4dae;
+    display: none;          /* caché sur desktop */
+    color: var(--accent);   /* ← #1b75fb — cohérent avec la charte */
+    transition: color 0.2s ease;
+}
+
+.menu-icon:hover {
+    color: #2696ff;         /* légèrement plus clair au hover */
 }
 
 /* SIDEBAR MOBILE */
